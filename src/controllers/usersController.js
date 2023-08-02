@@ -3,9 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
 let User = db.user;
 
-// console.log('PROCESS ENV :', process.env)
 const secretKey = process.env.SECRET_KEY;
-console.log("secretKey",secretKey);
 
 
 const auth = async (req, res) => {
@@ -74,7 +72,6 @@ const getDetails = async (req, res) => {
           res.status(200).json({ success: true, data:users });
     }
     } catch (error) {
-      console.log("error::",error);
         res.status(500).json({ success: false, message: 'Something went wrong'});
     }
 };
